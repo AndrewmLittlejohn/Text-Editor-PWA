@@ -27,9 +27,10 @@ module.exports = () => {
       title: 'Webpack Plugin'
     }),
     new InjectManifest({
-      swSrc: './src/src-sw.js',
+      swSrc: './src-sw.js',
       swDest: 'service-worker.js',
     }),    
+    
   ],
     module: {
       rules: [
