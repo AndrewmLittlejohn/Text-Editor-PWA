@@ -5,13 +5,13 @@ const butInstall = document.getElementById('buttonInstall');
 // from 19-PWA/01-Activities/25-Ins_Manifest/assets/js/install.js
 window.addEventListener('beforeinstallprompt', (event) => {
   event.preventDefault();
-  installBtn.style.visibility = 'visible';
+  butInstall.style.visibility = 'visible';
   textHeader.textContent = 'Click the button to install!';
 
-  installBtn.addEventListener('click', () => {
+  butInstall.addEventListener('click', () => {
     event.prompt();
-    installBtn.setAttribute('disabled', true);
-    installBtn.textContent = 'Installed!';
+    butInstall.setAttribute('disabled', true);
+    butInstall.textContent = 'Installed!';
   });
 });
 
