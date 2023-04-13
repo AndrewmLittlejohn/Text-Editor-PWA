@@ -30,6 +30,23 @@ module.exports = () => {
       swSrc: './src-sw.js',
       swDest: 'service-worker.js',
     }),    
+    new WebpackPwaManifest({
+      fingerprints: false,
+      inject: true,
+      name: 'jate',
+      short_name: 'jate',
+      background_color: '#5D6D7E',
+      theme_color: '#5D6D7E',
+      start_url: '/',
+      publicPath: '/',
+      icons: [
+        {
+          src: path.resolve('src/images/logo.png'),
+          sizes: [100, 200, 300],
+          destination: path.join('assets', 'icons'),
+        },
+      ],
+    }),
     
   ],
     module: {
