@@ -23,6 +23,7 @@ if (typeof editor === 'undefined') {
   loadSpinner();
 }
 
+
 // Check if service workers are supported
 if ('serviceWorker' in navigator) {
   // register workbox service worker
@@ -30,4 +31,12 @@ if ('serviceWorker' in navigator) {
   workboxSW.register();
 } else {
   console.error('Service workers are not supported in this browser.');
+}
+
+if (module.hot) {
+  module.hot.accept((err) => {
+    if (err) {
+      console.error('Cannot apply HMR update.', err);
+    }
+  });
 }

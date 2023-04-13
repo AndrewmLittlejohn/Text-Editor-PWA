@@ -17,11 +17,19 @@ module.exports = () => {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+    devServer: {
+      // The `hot` option is to use the webpack-dev-server in combination with the hot module replacement API.
+      hot: 'only',
+    },
     plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
       title: 'Webpack Plugin'
-    })
+    }),
+    new InjectManifest({
+      swSrc: './src/src-sw.js',
+      swDest: 'service-worker.js',
+    }),    
   ],
     module: {
       rules: [
@@ -36,8 +44,7 @@ module.exports = () => {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env']
-            }
-          }
+            }}
         },
       ],
      },
